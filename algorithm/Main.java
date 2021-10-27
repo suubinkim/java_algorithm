@@ -7,10 +7,16 @@ public class Main {
         int answer=0;
         for(int i=0;i<t;i++){
             for(int j=0;j<t;j++){
+                boolean flag = true;
                 for(int k=0;k<4;k++){
                     int nx = i + dx[k];
                     int ny = j + dy[k];
+                    if(nx >=0 & nx <t && ny>=0 && ny<t && arr[nx][ny]>=arr[i][j]){
+                        flag = false;
+                        break;
+                    }
                 }
+                if(flag) answer++;
             }
         }
 
