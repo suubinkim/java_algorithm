@@ -1,4 +1,5 @@
-package com.company.algorithm;
+package com.company.section2.ex10_봉우리;
+
 import java.util.*;
 public class Main {
     int[] dx = {-1,0,1,0};

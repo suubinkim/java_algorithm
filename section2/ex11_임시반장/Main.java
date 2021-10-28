@@ -1,4 +1,5 @@
-package com.company.section2;
+package com.company.section2.ex11_임시반장;
+
 import java.util.*;
 public class Main {
 
@@ -24,7 +25,7 @@ public class Main {
         return answer;
     }
     public static void main(String[] args) {
-        com.company.section2.Main T = new com.company.section2.Main();
+        Main T = new Main();
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
         int[][] arr = new int[t+1][6];
