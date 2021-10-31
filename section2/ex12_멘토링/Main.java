@@ -21,7 +21,6 @@ public class Main {
                 answer= i;
             }
         }
-
         return answer;
     }
     public static void main(String[] args) {
