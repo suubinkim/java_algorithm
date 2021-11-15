@@ -5,35 +5,26 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
-    public int[] solution(int n, int k, int[] arr ) {
-        int[] answer = new int[k];
+    public ArrayList<Integer> solution(int n, int k, int[] arr ) {
+        ArrayList<Integer> answer = new ArrayList<>();
+        int lt=0 , rt= k-1;
         HashMap<Integer,Integer> map = new HashMap<>();
-        ArrayList<Integer> test = new ArrayList<>();
         for(int i=0;i<k;i++){
-            test.add(arr[i]);
             map.put(arr[i],map.getOrDefault(arr[i],0)+1);
-            }
-        for(int key : map.keySet()) {
-            answer[0]++;
         }
-        int tt = 1;
-        while(tt<k){
-            for(int i=k;i<n;i++){
-                map.clear();
-                test.add(arr[i]);
-                test.remove(0);
-                for(int j=0;j<k;j++){
-                    map.put(arr[j],map.getOrDefault(arr[j],0)+1);
-                }
+        answer.add(map.size());
+        while(rt<n){
+            rt++;
+            if(rt==n)break;
+            map.put(arr[rt],map.getOrDefault(arr[rt],0)+1);
+            if(map.get(arr[lt])>1){
+                map.put(arr[lt],map.getOrDefault(arr[lt],0)-1);
+            }else {
+                map.remove(arr[lt]);
             }
-            for(int key : map.keySet()) {
-                answer[tt]++;
-            }
-            tt++;
+            answer.add(map.size());
+            lt++;
         }
-
-
-
         return answer;
     }
     public static void main(String[] args) {
