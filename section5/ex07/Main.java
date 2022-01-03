@@ -4,13 +4,26 @@ import java.util.*;
 
 public class Main {
     public int solution(int n, int m, Integer[] arr) {
-        int answer=0;
-        int a = arr[m];
-        Queue<Integer> q = new LinkedList<>();
-        for (Integer x : arr) q.offer(x);
-        for (Integer x : arr) {
-
+        int answer = 1;
+        Queue<Person> q = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            q.offer(new Person(i, arr[i]));
         }
+        while (!q.isEmpty()) {
+            Person tmp = q.poll();
+            for (Person x : q) {
+                if (x.priority > tmp.priority) {
+                    q.offer(tmp);
+                    tmp = null;
+                    break;
+                }
+            }
+            if (tmp != null) {
+                if (tmp.id == m) return answer;
+                else answer++;
+            }
+        }
+
 
         return answer;
     }
@@ -26,4 +39,15 @@ public class Main {
         }
         System.out.print(T.solution(n, m, arr));
     }
+}
+
+class Person {
+    int id;
+    int priority;
+
+    public Person(int id, int priority) {
+        this.id = id;
+        this.priority = priority;
+    }
+
 }
