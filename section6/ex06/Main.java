@@ -7,14 +7,10 @@ import java.util.Scanner;
 public class Main {
     public ArrayList<Integer> solution(int t, int[] arr) {
         ArrayList<Integer> answer = new ArrayList<>();
-        int tmp = 0;
-        for (int i = 0; i < t - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
-                tmp = arr[i];
-                answer.add(i + 1);
-                Arrays.sort(arr);
-                answer.add(Arrays.binarySearch(arr, tmp) + 1);
-            }
+        int[] newArr = arr.clone();
+        Arrays.sort(newArr);
+        for (int i = 0; i < t; i++) {
+            if (arr[i] != newArr[i]) answer.add(i + 1);
         }
         return answer;
     }
