@@ -1,18 +1,19 @@
 package com.company.section6.ex06;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public ArrayList<Integer> solution(int t, int[] arr) {
         ArrayList<Integer> answer = new ArrayList<>();
+        int tmp = 0;
         for (int i = 0; i < t - 1; i++) {
             if (arr[i] > arr[i + 1]) {
+                tmp = arr[i];
                 answer.add(i + 1);
-                for (int j = i + 2; j < t - 1; j++) {
-                    if (arr[j] < arr[j - 1]) answer.add(j + 1);
-                }
-                break;
+                Arrays.sort(arr);
+                answer.add(Arrays.binarySearch(arr, tmp) + 1);
             }
         }
         return answer;
