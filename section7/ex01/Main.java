@@ -9,8 +9,9 @@ public class Main {
         }
     }
 
-    public void solution(int n) {
+    public boolean solution(int n) {
         DFS(n);
+        return false;
     }
 
     public static void main(String[] args) {
