@@ -1,5 +1,7 @@
 package com.company.section7.ex01;
 
+import java.util.Scanner;
+
 public class Main {
     public void DFS(int n) {
         if (n == 0) return;
@@ -9,14 +11,10 @@ public class Main {
         }
     }
 
-    public boolean solution(int n) {
-        DFS(n);
-        return false;
-    }
-
     public static void main(String[] args) {
         Main T = new Main();
-        T.solution(3);
-        System.out.println(T.solution(3));
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        T.DFS(n);
     }
 }
