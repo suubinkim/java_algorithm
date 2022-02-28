@@ -16,8 +16,8 @@ public class Main {
     public void DFS(Node root) {
         if (root == null) return;
         else {
-            System.out.println(root.data + " ");
             DFS(root.lt);
+            System.out.print(root.data + " ");//부모데이터
             DFS(root.rt);
         }
     }
