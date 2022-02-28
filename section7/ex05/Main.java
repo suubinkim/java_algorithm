@@ -17,8 +17,8 @@ public class Main {
         if (root == null) return;
         else {
             DFS(root.lt);
-            System.out.print(root.data + " ");//부모데이터
             DFS(root.rt);
+            System.out.print(root.data + " ");//부모데이터
         }
     }
 
